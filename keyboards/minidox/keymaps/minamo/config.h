@@ -49,6 +49,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
+#define PERMISSIVE_HOLD
+#undef TAPPING_TERM
+#define TAPPING_TERM 170
+
 /* disable debug print */
 //#define NO_DEBUG
 
