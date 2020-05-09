@@ -14,13 +14,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "bonsai.h"
+#include "ichigoichie.h"
 
 // Optional override functions below.
 // You can leave any or all of these undefined.
 // These are only required if you want to perform custom actions.
 
-/*
 void matrix_init_kb(void) {
     // put your keyboard start-up code here
     // runs once when the firmware starts up
@@ -47,4 +46,3 @@ bool led_update_kb(led_t led_state) {
 
     return led_update_user(led_state);
 }
-*/
