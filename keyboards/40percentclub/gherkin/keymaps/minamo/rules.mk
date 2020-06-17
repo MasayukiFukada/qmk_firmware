@@ -1,3 +1,5 @@
+SRC += custom_keys.c
+
 # MCU name
 MCU = atmega32u4
 
@@ -73,6 +75,6 @@ RGBLIGHT_ENABLE = no
 
 LAYOUTS = ortho_3x10
 
-TAP_DANCE_ENABLE = no
-AUTO_SHIFT_ENABLE = yes
+TAP_DANCE_ENABLE = yes
+AUTO_SHIFT_ENABLE = no
 
