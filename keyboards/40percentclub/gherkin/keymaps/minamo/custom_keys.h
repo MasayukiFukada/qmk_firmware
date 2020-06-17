@@ -51,3 +51,13 @@
 
 #define MY_SPC  LSFT_T(KC_SPC)
 #define MY_ENT  KC_ENT
+
+#define KC_RTOG RGB_TOG
+#define KC_RMOD RGB_MOD
+#define KC_RRMD RGB_RMOD
+#define KC_RVAI RGB_VAI
+#define KC_RVAD RGB_VAD
+#define KC_RSAI RGB_SAI
+#define KC_RSAD RGB_SAD
+#define KC_RHUI RGB_HUI
+#define KC_RHUD RGB_HUD
