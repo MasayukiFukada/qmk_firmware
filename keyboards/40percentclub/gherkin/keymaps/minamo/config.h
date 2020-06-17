@@ -1,10 +1,8 @@
 #pragma once
 
-#define MASTER_RIGHT
+#define MASTER_LEFT
 
-#undef TAPPING_TERM
-#define TAPPING_TERM 170
-#define TAPPING_FORCE_HOLD
+#define IGNORE_MOD_TAP_INTERRUPT
 
 #undef RGB_DI_PIN
 #undef RGBLED_NUM
