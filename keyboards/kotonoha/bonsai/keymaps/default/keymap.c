@@ -18,7 +18,6 @@
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     _BASE,
-    _CUSTOM,
     _LOWER,
     _RAISE,
     _SUPPORT,
@@ -47,13 +46,14 @@ enum custom_keycodes {
 #define KC_RVAI RGB_VAI
 #define KC_RVAD RGB_VAD
 
-#define KC_L1 DF(_BASE)
-#define KC_L2 DF(_CUSTOM)
-
 #define KC_LCMM LT(_LOWER, KC_COMM)
 #define KC_LDOT LT(_RAISE, KC_DOT)
 #define KC_LX   LT(_SUPPORT, KC_X)
 #define KC_LZ   LT(_ADJUST, KC_Z)
+#define KC_LM   LALT_T(KC_M)
+#define KC_LC   LALT_T(KC_C)
+#define KC_LV   LGUI_T(KC_V)
+#define KC_LB   LGUI_T(KC_B)
 #define KC_LLT  LT(_ADJUST, KC_T)
 #define KC_LLOW LT(_LOWER, KC_ESC)
 #define KC_LRAI LT(_RAISE, KC_BSPC)
@@ -71,25 +71,17 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT( /* Base */
 //       '--------+--------+--------+--------+--------+  '-------+--------+--------+--------+--------'
-           KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,   KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , \
-  KC_V   , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,   KC_H   , KC_J   , KC_K   , KC_L   , KC_N   , KC_B   , \
-           KC_LZ  ,          KC_C   ,                                       KC_M   ,          KC_LX  , \
-                                      KC_LLOW, KC_MSPC,   KC_MENT, KC_LRAI                    \
-//                                  '--------+--------+  --------+--------'
-  ),
-  [_CUSTOM] = LAYOUT(
-//       '--------+--------+--------+--------+--------+  '-------+--------+--------+--------+--------'
            KC_Q   , KC_W   , KC_F   , KC_P   , KC_G   ,   KC_J   , KC_L   , KC_U   , KC_Y   , KC_LX  , \
-  KC_V   , KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , KC_B   , \
-           KC_LZ  ,          KC_C   ,                                       KC_M   ,          KC_K   , \
-                                      _______, _______,   _______, _______                    \
+  KC_LV  , KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , KC_LB  , \
+           KC_LZ  ,          KC_LC  ,                                       KC_LM  ,          KC_K   , \
+                                      KC_LLOW, KC_MSPC,   KC_MENT, KC_LRAI                    \
 //                                  '--------+--------+  --------+--------'
   ),
   [_LOWER] = LAYOUT(
 //       '--------+--------+--------+--------+--------+  '-------+--------+--------+--------+--------'
            KC_6   , KC_7   , KC_8   , KC_9   , KC_0   ,   KC_MINS, KC_BSLS, KC_COMM, KC_DOT , KC_SLSH, \
   KC_LBRC, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,   KC_GRV , KC_QUOT, XXXXXXX, KC_SCLN, KC_SCLN, KC_RBRC, \
-           XXXXXXX,          KC_1GUI,                                       KC_1ALT,          KC_EQL , \
+           XXXXXXX,          XXXXXXX,                                       XXXXXXX,          KC_EQL , \
                                       _______, _______,   _______, _______                    \
 //                                  '--------+--------+  --------+--------'
   ),
@@ -97,14 +89,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //       '--------+--------+--------+--------+--------+  '-------+--------+--------+--------+--------'
            KC_PGUP, KC_HOME, KC_UP  , KC_END , KC_F1  ,   KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , \
   KC_APP , KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_F7  ,   KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 , KC_DEL , \
-           XXXXXXX,          KC_PSCR,                                       KC_1CLR,          XXXXXXX, \
+           XXXXXXX,          KC_PSCR,                                       XXXXXXX,          XXXXXXX, \
                                       _______, _______,   _______, _______                    \
 //                                  '--------+--------+  --------+--------'
   ),
   [_SUPPORT] = LAYOUT(
 //       '--------+--------+--------+--------+--------+  '-------+--------+--------+--------+--------'
            KC_ESC , XXXXXXX, KC_HENK, KC_MHEN, XXXXXXX,   KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, \
-  KC_TAB , XXXXXXX, XXXXXXX, KC_BSPC, KC_SPC , XXXXXXX,   XXXXXXX, KC_JPN , KC_LCTL, KC_LSFT, XXXXXXX, KC_BSPC, \
+  KC_TAB , XXXXXXX, XXXXXXX, KC_BSPC, KC_SPC , XXXXXXX,   XXXXXXX, KC_ENT , KC_LCTL, KC_LSFT, XXXXXXX, KC_BSPC, \
            _______,          XXXXXXX,                                       XXXXXXX,          XXXXXXX, \
                                       _______, _______,   _______, _______                    \
 //                                  '--------+--------+  --------+--------'
@@ -112,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT(
 //       '--------+--------+--------+--------+--------+  '-------+--------+--------+--------+--------'
            RESET  , XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG,   RGB_HUI, RGB_SAI, RGB_VAI, RGBRST , XXXXXXX, \
-  KC_L1  , KC_L2  , XXXXXXX, XXXXXXX,RGB_MOD ,RGB_RMOD,   RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX, XXXXXXX, \
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,RGB_MOD ,RGB_RMOD,   RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX, XXXXXXX, \
            _______,          XXXXXXX,                                       XXXXXXX,          XXXXXXX, \
                                       XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX                    \
 //                                  '--------+--------+  --------+--------'
@@ -136,9 +128,9 @@ void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
 }
 
 void matrix_init_user(void) {
-    #ifdef RGBLIGHT_ENABLE
-      RGB_current_mode = rgblight_config.mode;
-    #endif
+//  #ifdef RGBLIGHT_ENABLE
+//    RGB_current_mode = rgblight_config.mode;
+//  #endif
     //SSD1306 OLED init, make sure to add #define SSD1306OLED in config.h
     #ifdef SSD1306OLED
         iota_gfx_init(!has_usb());   // turns on the display
@@ -216,61 +208,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-  /*
-    case BASE:
-      if (record->event.pressed) {
-        persistent_default_layer_set(1UL<<_BASE);
-      }
-      return false;
-      break;
-    case LOWER:
-      if (record->event.pressed) {
-        layer_on(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case RAISE:
-      if (record->event.pressed) {
-        layer_on(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case ADJUST:
-        if (record->event.pressed) {
-          layer_on(_ADJUST);
-        } else {
-          layer_off(_ADJUST);
-        }
-        return false;
-        break;
-*/
-    case RGB_MOD:
-      #ifdef RGBLIGHT_ENABLE
-        if (record->event.pressed) {
-          rgblight_mode(RGB_current_mode);
-          rgblight_step();
-          RGB_current_mode = rgblight_config.mode;
-        }
-      #endif
-      return false;
-      break;
-    case RGBRST:
-      #ifdef RGBLIGHT_ENABLE
-        if (record->event.pressed) {
-          eeconfig_update_rgblight_default();
-          rgblight_enable();
-          RGB_current_mode = rgblight_config.mode;
-        }
-      #endif
-      break;
     case ONESHOT_CLEAR: set_oneshot_clear(); break;
     case ONESHOT_SHIFT: set_oneshot_shift(); break;
     case ONESHOT_CTRL:  set_oneshot_ctrl(); break;
