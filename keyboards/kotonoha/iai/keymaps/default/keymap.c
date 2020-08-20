@@ -141,9 +141,9 @@ void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
 }
 
 void matrix_init_user(void) {
-    #ifdef RGBLIGHT_ENABLE
-      RGB_current_mode = rgblight_config.mode;
-    #endif
+    //#ifdef RGBLIGHT_ENABLE
+    //  RGB_current_mode = rgblight_config.mode;
+    //#endif
     //SSD1306 OLED init, make sure to add #define SSD1306OLED in config.h
     #ifdef SSD1306OLED
         iota_gfx_init(!has_usb());   // turns on the display
@@ -262,7 +262,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
           rgblight_mode(RGB_current_mode);
           rgblight_step();
-          RGB_current_mode = rgblight_config.mode;
+          //RGB_current_mode = rgblight_config.mode;
         }
       #endif
       return false;
@@ -272,7 +272,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
           eeconfig_update_rgblight_default();
           rgblight_enable();
-          RGB_current_mode = rgblight_config.mode;
+          //RGB_current_mode = rgblight_config.mode;
         }
       #endif
       break;
