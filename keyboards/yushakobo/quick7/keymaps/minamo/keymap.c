@@ -26,22 +26,22 @@ enum custom_keycodes {
     YUSHAURL = SAFE_RANGE
 };
 
-#define KC_LLAY LT(_SUB, KC_ESC)
+#define KC_LLAY LT(_SUB, KC_ENT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [_BASE] = LAYOUT(
 //       '--------+--------+--------'
            KC_MUTE, KC_LLAY, RGB_MOD,
-           KC_F13 , KC_F14 , KC_F15 ,
-           KC_F16 , KC_F17 , KC_F18
+           KC_ESC , KC_UP  , KC_BSPC,
+           KC_LEFT, KC_DOWN, KC_RGHT
 //       '--------+--------+--------'
     ),
     [_SUB] = LAYOUT(
 //       '--------+--------+--------'
            RESET  , _______, RGB_TOG,
-           KC_F19 , KC_F20 , KC_F21 ,
-           KC_F22 , KC_F23 , KC_F24
+           XXXXXXX, XXXXXXX, XXXXXXX,
+           XXXXXXX, XXXXXXX, XXXXXXX
 //       '--------+--------+--------'
     )
 };
