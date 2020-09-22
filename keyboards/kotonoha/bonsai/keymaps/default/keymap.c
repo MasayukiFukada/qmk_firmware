@@ -18,6 +18,7 @@
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     _BASE,
+    _GAME,
     _LOWER,
     _RAISE,
     _CURSOR,
@@ -48,6 +49,9 @@ enum custom_keycodes {
 #define KC_RVAI RGB_VAI
 #define KC_RVAD RGB_VAD
 
+#define KC_DEF  DF(_BASE)
+#define KC_GAME DF(_GAME)
+
 #define KC_LN   LT(_FUNCTION, KC_N)
 #define KC_LE   LT(_LOWER, KC_E)
 #define KC_LI   LT(_CURSOR, KC_I)
@@ -58,6 +62,8 @@ enum custom_keycodes {
 #define KC_ABSP LALT_T(KC_BSPC)
 #define KC_MENT LSFT_T(KC_ENT)
 #define KC_MSPC LCTL_T(KC_SPC)
+#define KC_VCTL LCTL_T(KC_V)
+#define KC_CSFT LSFT_T(KC_C)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT( /* Base */
@@ -66,6 +72,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_V   , KC_A   , KC_R   , KC_S   , KC_RT  , KC_D   ,   KC_H   , KC_LN  , KC_LE  , KC_LI  , KC_LO  , KC_B   , \
            KC_LZ  ,          KC_C   ,                                       KC_M   ,          KC_X   , \
                                       KC_GUES, KC_MSPC,   KC_MENT, KC_ABSP                    \
+//                                  '--------+--------+  --------+--------'
+  ),
+  [_GAME] = LAYOUT(
+//       '--------+--------+--------+--------+--------+  '-------+--------+--------+--------+--------'
+           KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,   KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , \
+  KC_VCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,   KC_H   , KC_J   , KC_K   , KC_L   , KC_N   , KC_B   , \
+           KC_LZ  ,          KC_CSFT,                                       KC_M   ,          KC_X   , \
+                                      KC_ESC , KC_SPC ,   _______, _______                    \
 //                                  '--------+--------+  --------+--------'
   ),
   [_LOWER] = LAYOUT(
@@ -111,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT(
 //       '--------+--------+--------+--------+--------+  '-------+--------+--------+--------+--------'
            RESET  , XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG,   RGB_HUI, RGB_SAI, RGB_VAI, RGBRST , XXXXXXX, \
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_MOD,RGB_RMOD,   RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX, XXXXXXX, \
+  KC_DEF , KC_GAME, XXXXXXX, XXXXXXX, RGB_MOD,RGB_RMOD,   RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX, XXXXXXX, \
            _______,          XXXXXXX,                                       XXXXXXX,          XXXXXXX, \
                                       XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX                    \
 //                                  '--------+--------+  --------+--------'
