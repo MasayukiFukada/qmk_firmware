@@ -40,8 +40,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SUB] = LAYOUT(
 //       '--------+--------+--------'
            RESET  , _______, RGB_TOG,
-           XXXXXXX, XXXXXXX, XXXXXXX,
-           XXXXXXX, XXXXXXX, XXXXXXX
+           KC_1   , KC_LEAD, KC_2   ,
+           KC_3   , KC_4   , KC_5
 //       '--------+--------+--------'
     )
 };
@@ -64,5 +64,36 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         } else {
             rgblight_increase_hue_noeeprom();
         }
+    }
+}
+
+bool did_leader_succeed;
+
+LEADER_EXTERNS();
+
+void matrix_scan_user(void) {
+    LEADER_DICTIONARY() {
+        did_leader_succeed = leading = false;
+
+        SEQ_ONE_KEY(KC_1) {
+            // feedly の 一度 j を押してアクティブになってからのマクロ
+            // 「Read Later の解除」「別タブで開く」「2 番目のタブに戻る」「削除」
+            SEND_STRING("sv" SS_LCTL("2") "x");
+            did_leader_succeed = true;
+        } else
+            SEQ_ONE_KEY(KC_2) {
+            did_leader_succeed = true;
+        }
+
+        leader_end();
+    }
+}
+
+void leader_start(void) {
+}
+
+void leader_end(void) {
+    if (did_leader_succeed) {
+    } else {
     }
 }
