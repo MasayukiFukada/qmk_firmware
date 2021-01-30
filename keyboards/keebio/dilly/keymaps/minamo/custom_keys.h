@@ -50,7 +50,7 @@
 #define MY_RBRC KC_RBRC
 
 #define MY_SPC  LSFT_T(KC_SPC)
-#define MY_ENT  KC_ENT
+#define MY_ENT  LT(ADJUST, KC_ENT)
 
 #define KC_RTOG RGB_TOG
 #define KC_RMOD RGB_MOD

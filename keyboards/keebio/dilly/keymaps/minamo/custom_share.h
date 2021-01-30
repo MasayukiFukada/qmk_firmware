@@ -6,6 +6,7 @@
 #define CURSOR   3
 #define FUNCTION 4
 #define SUPPORT  5
+#define ADJUST   6
 
 enum custom_keycodes {
     MACRO1 = SAFE_RANGE
