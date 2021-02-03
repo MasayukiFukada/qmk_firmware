@@ -31,6 +31,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS 4*2 //master: 4 rows, slave: 4 rows
 #define MATRIX_COLS 8
 
+#define ENCODERS_PAD_A { B4 }
+#define ENCODERS_PAD_B { B5 }
+#define ENCODER_RESOLUTION 4
+
 /*
  * Keyboard Matrix Assignments
  *

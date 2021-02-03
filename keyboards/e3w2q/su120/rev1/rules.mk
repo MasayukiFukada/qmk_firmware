@@ -1,3 +1,5 @@
+SRC += custom_keys.c
+
 # MCU name
 MCU = atmega32u4
 
@@ -79,3 +81,7 @@ AUDIO_ENABLE = no           # Audio output on port C6
 FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
 HD44780_ENABLE = no         # Enable support for HD44780 based LCDs (+400)
 SPLIT_KEYBOARD = yes
+ENCODER_ENABLE = yes
+
+TAP_DANCE_ENABLE = yes
+AUTO_SHIFT_ENABLE = no
