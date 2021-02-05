@@ -1,5 +1,3 @@
-SRC += custom_keys.c
-
 # MCU name
 MCU = atmega32u4
 
@@ -83,5 +81,5 @@ HD44780_ENABLE = no         # Enable support for HD44780 based LCDs (+400)
 SPLIT_KEYBOARD = yes
 ENCODER_ENABLE = yes
 
-TAP_DANCE_ENABLE = yes
+TAP_DANCE_ENABLE = no
 AUTO_SHIFT_ENABLE = no
