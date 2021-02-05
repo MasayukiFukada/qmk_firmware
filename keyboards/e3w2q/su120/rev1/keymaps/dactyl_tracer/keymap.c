@@ -14,8 +14,13 @@
  */
 #include QMK_KEYBOARD_H
 
-#include "custom_share.h"
-#include "custom_keys.h"
+#define BASE     0
+#define LOWER    1
+#define RAISE    2
+#define CURSOR   3
+#define FUNCTION 4
+#define SUPPORT  5
+#define ADJUST   6
 
 // Fillers to make layering more clear
 #define KC_RST RESET
@@ -33,6 +38,14 @@
 #define KC_LENT LT(ADJUST, KC_ENTER)
 #define KC_LLOW LT(LOWER, KC_ESC)
 #define KC_LRAI LT(RAISE, KC_BSPC)
+#define KC_LCUR LT(CURSOR, KC_HENK)
+#define KC_LFUN LT(FUNCTION, KC_MHEN)
+#define KC_LSUP LT(SUPPORT, KC_NO)
+#define KC_LDOT LT(CURSOR, KC_DOT)
+#define KC_LSLS LT(SUPPORT, KC_SLSH)
+#define KC_LDEL LT(ADJUST, KC_DEL)
+#define KC_MGUI LGUI_T(KC_ENT)
+#define KC_MALT LALT_T(KC_ENT)
 #define KC_MENT LSFT_T(KC_ENT)
 #define KC_MSPC LCTL_T(KC_SPC)
 
@@ -61,16 +74,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [BASE] = LAYOUT(
     // 左手
-    MY_Q    , MY_W    , MY_F    , MY_P    , MY_G    , KC_MUTE ,
-    MY_A    , MY_R    , MY_S    , MY_T    , MY_D    , XXXXXXX ,
-    MY_Z    , MY_X    , MY_C    , MY_V    , MY_B    , KC_LGUI ,
-              KC_DEL  , KC_TAB  , KC_LLOW , KC_MSPC ,
+    KC_Q    , KC_W    , KC_F    , KC_P    , KC_G    , KC_MUTE ,
+    KC_A    , KC_R    , KC_S    , KC_T    , KC_D    , KC_LCUR ,
+    KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    , KC_MGUI ,
+              KC_LDEL , KC_TAB  , KC_LLOW , KC_MSPC ,
 
     // 右手
-    XXXXXXX , MY_J    , MY_L    , MY_U    , MY_Y    , KC_LENT ,
-    XXXXXXX , MY_H    , MY_N    , MY_E    , MY_I    , MY_O    ,
-    KC_LALT , MY_K    , MY_M    , MY_CMM  , MY_DOT  , MY_SLSH ,
-              KC_MENT , KC_LRAI , XXXXXXX , XXXXXXX
+    XXXXXXX , KC_J    , KC_L    , KC_U    , KC_Y    , KC_LENT ,
+    KC_LFUN , KC_H    , KC_N    , KC_E    , KC_I    , KC_O    ,
+    KC_MALT , KC_K    , KC_M    , KC_COMM , KC_LDOT , KC_LSLS ,
+              KC_MENT , KC_LRAI , KC_LSUP , KC_LCUR
   ),
 
   [LOWER] = LAYOUT(
@@ -82,21 +95,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // 右手
     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
-    _______ , XXXXXXX , XXXXXXX , _______ , XXXXXXX , XXXXXXX ,
+    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
     _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
               _______ , _______ , XXXXXXX , XXXXXXX
   ),
 
   [RAISE] = LAYOUT(
     // 左手
-    MY_GRV  , MY_QUOT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
-    XXXXXXX , MY_LBRC , MY_RBRC , _______ , XXXXXXX , _______ ,
+    KC_GRV  , KC_QUOT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
+    XXXXXXX , KC_LBRC , KC_RBRC , XXXXXXX , XXXXXXX , _______ ,
     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
               XXXXXXX , XXXXXXX , _______ , _______ ,
 
     // 右手
-    XXXXXXX , XXXXXXX , MY_EQL  , MY_MINS , MY_BSLS , MY_SCLN ,
-    _______ , XXXXXXX , XXXXXXX , MY_CMM  , MY_DOT  , MY_SLSH ,
+    XXXXXXX , XXXXXXX , KC_EQL  , KC_MINS , KC_BSLS , KC_SCLN ,
+    _______ , XXXXXXX , XXXXXXX , KC_COMM , KC_DOT  , KC_SLSH ,
     _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
               _______ , _______ , XXXXXXX , XXXXXXX
   ),
@@ -110,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // 右手
     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
-    _______ , XXXXXXX , XXXXXXX , XXXXXXX , _______ , XXXXXXX ,
+    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
     _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
               _______ , _______ , XXXXXXX , XXXXXXX
   ),
@@ -124,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // 右手
     XXXXXXX , KC_F6   , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
-    _______ , KC_F12  , _______ , XXXXXXX , XXXXXXX , XXXXXXX ,
+    _______ , KC_F12  , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
     _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
               _______ , _______ , XXXXXXX , XXXXXXX
   ),
@@ -168,13 +181,25 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     }
     else if (index == 1) { // Right encoder
         if (clockwise) {
-            // do nothing
+            tap_code(KC_TAB);
         } else {
-            // do nothing
+            register_code(KC_LSFT);
+            tap_code(KC_TAB);
+            unregister_code(KC_LSFT);
         }
     }
 }
 
 void led_set_user(uint8_t usb_led) {
 }
+
+void matrix_init_user(void) {
+}
+
+void matrix_scan_user(void) {
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    return true;
+};
 
