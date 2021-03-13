@@ -80,8 +80,25 @@ void matrix_scan_user(void) {
             // 「Read Later の解除」「別タブで開く」「2 番目のタブに戻る」「削除」
             SEND_STRING("sv" SS_LCTL("2") "x");
             did_leader_succeed = true;
-        } else
-            SEQ_ONE_KEY(KC_2) {
+        }
+        SEQ_ONE_KEY(KC_2) {
+            did_leader_succeed = true;
+        }
+        SEQ_ONE_KEY(KC_3) {
+            did_leader_succeed = true;
+        }
+        SEQ_ONE_KEY(KC_4) {
+            register_code(KC_LSFT);
+            register_code(KC_LGUI);
+            tap_code(KC_C);
+            unregister_code(KC_LSFT);
+            unregister_code(KC_LGUI);
+            did_leader_succeed = true;
+        }
+        SEQ_ONE_KEY(KC_5) {
+            did_leader_succeed = true;
+        }
+        else {
             did_leader_succeed = true;
         }
 
