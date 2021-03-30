@@ -35,9 +35,9 @@
 #define KC_RVAI RGB_VAI
 #define KC_RVAD RGB_VAD
 
-#define KC_LENT LT(ADJUST, KC_ENTER)
 #define KC_LLOW LT(LOWER, KC_ESC)
 #define KC_LRAI LT(RAISE, KC_BSPC)
+#define KC_LADJ LT(ADJUST, KC_HENK)
 #define KC_LCUR LT(CURSOR, KC_HENK)
 #define KC_LFUN LT(FUNCTION, KC_MHEN)
 #define KC_LSUP LT(SUPPORT, KC_NO)
@@ -74,15 +74,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [BASE] = LAYOUT(
     // 左手
-    KC_Q    , KC_W    , KC_F    , KC_P    , KC_G    , KC_MUTE ,
-    KC_A    , KC_R    , KC_S    , KC_T    , KC_D    , KC_LCUR ,
-    KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    , KC_MGUI ,
+    KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , KC_MUTE ,
+    KC_A    , KC_R    , KC_S    , KC_T    , KC_G    , KC_LADJ ,
+    KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , KC_MGUI ,
               KC_LDEL , KC_TAB  , KC_LLOW , KC_MSPC ,
 
     // 右手
-    XXXXXXX , KC_J    , KC_L    , KC_U    , KC_Y    , KC_LENT ,
-    KC_LFUN , KC_H    , KC_N    , KC_E    , KC_I    , KC_O    ,
-    KC_MALT , KC_K    , KC_M    , KC_COMM , KC_LDOT , KC_LSLS ,
+    XXXXXXX , KC_J    , KC_L    , KC_U    , KC_Y    , KC_MINS ,
+    KC_LFUN , KC_M    , KC_N    , KC_E    , KC_I    , KC_O    ,
+    KC_MALT , KC_K    , KC_H    , KC_COMM , KC_LDOT , KC_LSLS ,
               KC_MENT , KC_LRAI , KC_LSUP , KC_LCUR
   ),
 
