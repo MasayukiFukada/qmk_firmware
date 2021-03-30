@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
 //       '--------+--------+--------'
            KC_MUTE, KC_LLAY, RGB_MOD,
-           KC_ESC , KC_UP  , KC_BSPC,
+           KC_ENT , KC_UP  , KC_BSPC,
            KC_LEFT, KC_DOWN, KC_RGHT
 //       '--------+--------+--------'
     ),
