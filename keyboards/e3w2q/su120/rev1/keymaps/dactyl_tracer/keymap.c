@@ -20,7 +20,8 @@
 #define CURSOR   3
 #define FUNCTION 4
 #define SUPPORT  5
-#define ADJUST   6
+#define GAME     6
+#define ADJUST   7
 
 // Fillers to make layering more clear
 #define KC_RST RESET
@@ -44,6 +45,8 @@
 #define KC_LDOT LT(CURSOR, KC_DOT)
 #define KC_LSLS LT(SUPPORT, KC_SLSH)
 #define KC_LDEL LT(ADJUST, KC_DEL)
+#define KC_NORM TO(BASE)
+#define KC_GAME TO(GAME)
 #define KC_MGUI LGUI_T(KC_ENT)
 #define KC_MALT LALT_T(KC_ENT)
 #define KC_MENT LSFT_T(KC_ENT)
@@ -156,10 +159,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               _______ , _______ , XXXXXXX , XXXXXXX
   ),
 
+  [GAME] = LAYOUT(
+    // 左手
+    KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    , XXXXXXX ,
+    KC_A    , KC_S    , KC_D    , KC_F    , KC_G    , KC_LADJ ,
+    KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    , XXXXXXX ,
+              XXXXXXX , XXXXXXX , KC_ESC  , KC_SPC  ,
+
+    // 右手
+    XXXXXXX , KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    ,
+    XXXXXXX , KC_H    , KC_J    , KC_K    , KC_L    , KC_SCLN ,
+    XXXXXXX , KC_N    , KC_M    , KC_COMM , KC_DOT  , KC_SLSH ,
+              XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX
+  ),
+
   [ADJUST] = LAYOUT(
     // 左手
     RESET   , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
-    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
+    KC_NORM , KC_GAME , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
               XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
 
