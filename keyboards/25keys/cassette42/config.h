@@ -17,4 +17,40 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+<<<<<<< HEAD
+=======
+#include "config_common.h"
+
+<<<<<<< HEAD:keyboards/25keys/cassette42/config.h
+=======
+/* USB Device descriptor parameter */
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0xCA42
+#define DEVICE_VER      0x0001
+#define MANUFACTURER    monksoffunk
+#define PRODUCT         cassette42
+
+>>>>>>> 37d0574727 (既存のシリーズを追加(Casette42 初期化)):keyboards/cassette42/config.h
+/* key matrix size */
+#define MATRIX_ROWS 1
+#define MATRIX_COLS 6
+
+#define DIRECT_PINS {{ B4, F6, F5, F4, B5, F7 }}
+
+#define ENCODERS_PAD_A { B6, B3 }
+#define ENCODERS_PAD_B { B2, B1 }
+#define ENCODER_RESOLUTION 4
+
+#define RGB_DI_PIN D3
+#ifdef RGB_DI_PIN
+#    define RGBLED_NUM 5
+#    define RGBLIGHT_HUE_STEP 8
+#    define RGBLIGHT_SAT_STEP 8
+#    define RGBLIGHT_VAL_STEP 8
+#    define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
+#    define RGBLIGHT_SLEEP         /* If defined, the RGB lighting will be switched off when the host goes to sleep */
+#    define RGBLIGHT_ANIMATIONS
+#endif
+
+>>>>>>> 50dc9bd564 (既存のシリーズを追加(Casette42 初期化))
 #define OLED_FONT_H "keyboards/25keys/cassette42/common/glcdfont.c"
