@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // 左手
     KC_PGUP , KC_HOME , KC_UP   , KC_END  , XXXXXXX , XXXXXXX ,
     KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , XXXXXXX , _______ ,
-    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
+    XXXXXXX , XXXXXXX , KC_PSCR , XXXXXXX , XXXXXXX , _______ ,
               XXXXXXX , XXXXXXX , _______ , _______ ,
 
     // 右手
@@ -149,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [SUPPORT] = LAYOUT(
     // 左手
-    KC_ESC  , XXXXXXX , KC_HENK , KC_MHEN , XXXXXXX , XXXXXXX ,
+    KC_ESC  , KC_INS  , KC_HENK , KC_MHEN , XXXXXXX , XXXXXXX ,
     KC_TAB  , KC_DEL  , KC_BSPC , KC_SPC  , XXXXXXX , _______ ,
     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
               XXXXXXX , XXXXXXX , _______ , _______ ,
