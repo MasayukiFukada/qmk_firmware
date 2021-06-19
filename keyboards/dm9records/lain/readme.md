@@ -1,5 +1,6 @@
 # lain
 
+<<<<<<< HEAD
 ![lain](https://i.imgur.com/V0mR1Bgh.jpg)
 
 Ergonomic 40% keyboard.
@@ -30,3 +31,18 @@ Enter the bootloader in 3 ways:
 * **Bootmagic reset**: Hold down the key at (0,0) in the matrix (usually the top left key or Escape) and plug in the keyboard
 * **Physical reset button**: Briefly press the button on the back of the PCB
 * **Keycode in layout**: Press the key mapped to `QK_BOOT` if it is available
+=======
+![lain]()
+
+Ergonomic 40% keyboard.
+
+Keyboard Maintainer: [hsgw](https://github.com/hsgw)  
+Hardware Supported: onboard MCU STM32F072V8T6, hotswap socket.  
+Hardware Availability: TODO
+
+Make example for this keyboard (after setting up your build environment):
+
+    make lain:default:dfu-util
+
+See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
+>>>>>>> 6d823e373f (lain 追加！)
