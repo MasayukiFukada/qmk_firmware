@@ -6,8 +6,9 @@ extern keymap_config_t keymap_config;
 #define _CUSTOM  1
 #define _LOWER   2
 #define _RAISE   3
-#define _SUPPORT 4
-#define _ADJUST  5
+#define _CURSOR  4
+#define _SUPPORT 5
+#define _ADJUST  6
 
 enum custom_keycodes {
   ONESHOT_CLEAR = SAFE_RANGE,
@@ -34,23 +35,17 @@ enum custom_keycodes {
 #define KC_L1 DF(_BASE)
 #define KC_L2 DF(_CUSTOM)
 
-#define KC_LCMM LT(_LOWER, KC_COMM)
-#define KC_LDOT LT(_RAISE, KC_DOT)
+#define KC_LDT  LT(_CURSOR, KC_DOT)
 #define KC_LSLS LT(_SUPPORT, KC_SLSH)
-#define KC_LENT LT(_ADJUST, KC_ENTER)
+#define KC_LMIN LT(_ADJUST, KC_MINS)
 #define KC_LLOW MO(_LOWER)
 #define KC_LRAI MO(_RAISE)
 #define KC_MENT LSFT_T(KC_ENT)
 #define KC_MSPC LCTL_T(KC_SPC)
+#define KC_LAPP LALT_T(KC_APP)
 
 // KUMO
 #define KC_GTAB LGUI_T(KC_TAB)
-
-#define KC_1CLR ONESHOT_CLEAR
-#define KC_1SFT ONESHOT_SHIFT
-#define KC_1CTL ONESHOT_CTRL
-#define KC_1ALT ONESHOT_ALT
-#define KC_1GUI ONESHOT_GUI
 
 #define KC_JPN  LALT(KC_GRV)
 
@@ -69,40 +64,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_arrow(
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
     KC_ESC  , KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    , KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    , KC_BSPC ,
-    KC_GTAB , KC_A    , KC_S    , KC_D    , KC_F    , KC_G    , KC_H    , KC_J    , KC_K    , KC_L    , KC_LENT , KC_LENT ,
-    KC_LALT , KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    , KC_N    , KC_M    , KC_LCMM , KC_LDOT , KC_LSLS , KC_UP   ,
-    KC_LCTL , KC_APP  , KC_LLOW ,                     KC_MSPC , KC_MENT ,           KC_LRAI , KC_LEFT , KC_RGHT , KC_DOWN
+    KC_GTAB , KC_A    , KC_S    , KC_D    , KC_F    , KC_G    , KC_H    , KC_J    , KC_K    , KC_L    , KC_LMIN , KC_ENT ,
+    KC_LSFT , KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    , KC_N    , KC_M    , KC_COMM , KC_LDT  , KC_LSLS , KC_UP   ,
+    KC_LCTL , KC_LAPP , KC_LLOW ,                     KC_MSPC , KC_MENT ,           KC_LRAI , KC_LEFT , KC_RGHT , KC_DOWN
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
   ),
   [_CUSTOM] = LAYOUT_arrow(
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
-    _______ , KC_Q    , KC_W    , KC_F    , KC_P    , KC_G    , KC_J    , KC_L    , KC_U    , KC_Y    , KC_LENT , _______ ,
-    _______ , KC_A    , KC_R    , KC_S    , KC_T    , KC_D    , KC_H    , KC_N    , KC_E    , KC_I    , KC_O    , _______ ,
-    _______ , KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    , KC_K    , KC_M    , KC_LCMM , KC_LDOT , KC_LSLS , _______ ,
+    _______ , KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , KC_J    , KC_L    , KC_U    , KC_Y    , KC_LMIN , _______ ,
+    _______ , KC_A    , KC_R    , KC_S    , KC_T    , KC_G    , KC_M    , KC_N    , KC_E    , KC_I    , KC_O    , _______ ,
+    _______ , KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , KC_K    , KC_H    , KC_COMM , KC_LDT  , KC_LSLS , _______ ,
     _______ , _______ , _______ ,                     _______ , _______ ,           _______ , _______ , _______ , _______
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
   ),
   [_LOWER] = LAYOUT_arrow(
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
-    _______ , KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
-    _______ , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    , KC_GRV  , KC_QUOT , XXXXXXX , KC_SCLN , KC_SCLN , _______ ,
-    _______ , KC_1CTL , KC_1ALT , KC_1GUI , KC_1SFT , KC_LBRC , KC_RBRC , KC_EQL  , _______ , KC_MINS , KC_BSLS , _______ ,
+    _______ , KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , KC_F7   , KC_F8   , KC_F9   , KC_F10  , KC_F11  , KC_F12  ,
+    _______ , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   ,
+    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , XXXXXXX , XXXXXXX , _______ ,
     _______ , _______ , _______ ,                     _______ , _______ ,           _______ , _______ , _______ , _______
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
   ),
   [_RAISE] = LAYOUT_arrow(
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
-    _______ , KC_PGUP , KC_HOME , KC_UP   , KC_END  , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   , _______ ,
-    _______ , KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , KC_F7   , KC_F8   , KC_F9   , KC_F10  , KC_F11  , KC_F12  , _______ ,
-    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_PSCR , KC_APP  , KC_1CLR , _______ , KC_DEL  , _______ ,
+    _______ , KC_GRV  , KC_QUOT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_EQL  , KC_MINS , KC_BSLS , KC_SCLN , _______ ,
+    _______ , XXXXXXX , KC_LBRC , KC_RBRC , XXXXXXX , XXXXXXX , XXXXXXX , KC_EQL  , KC_MINS , KC_BSLS , KC_SCLN , _______ ,
+    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , XXXXXXX , _______ ,
+    _______ , _______ , _______ ,                     _______ , _______ ,           _______ , _______ , _______ , _______
+//,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
+  ),
+  [_CURSOR] = LAYOUT_arrow(
+//,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
+    _______ , KC_PGUP , KC_HOME , KC_UP   , KC_END  , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , _______ ,
+    _______ , KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
+    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , _______ ,
     _______ , _______ , _______ ,                     _______ , _______ ,           _______ , _______ , _______ , _______
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
   ),
   [_SUPPORT] = LAYOUT_arrow(
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
     _______ , KC_ESC  , XXXXXXX , KC_HENK , KC_MHEN , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , _______ ,
-    _______ , KC_TAB  , XXXXXXX , KC_BSPC , KC_SPC  , XXXXXXX , XXXXXXX , KC_JPN  , KC_LCTL , KC_LSFT , KC_BSPC , _______ ,
-    _______ , KC_CAPS , XXXXXXX , XXXXXXX , KC_SPC  , KC_SPC  , KC_LEFT , KC_DOWN , KC_UP   , KC_RGHT , _______ , _______ ,
+    _______ , KC_TAB  , XXXXXXX , KC_BSPC , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
+    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , _______ ,
     _______ , _______ , _______ ,                     _______ , _______ ,           _______ , _______ , _______ , _______
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
   ),
