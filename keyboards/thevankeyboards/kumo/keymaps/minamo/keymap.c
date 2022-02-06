@@ -95,8 +95,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_CURSOR] = LAYOUT_arrow(
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
-    _______ , KC_PGUP , KC_HOME , KC_UP   , KC_END  , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , _______ ,
-    _______ , KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
+    _______ , KC_PGUP , KC_HOME , KC_UP   , KC_END  , KC_INS  , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , _______ ,
+    _______ , KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , KC_DEL  , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
     _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , _______ ,
     _______ , _______ , _______ ,                     _______ , _______ ,           _______ , _______ , _______ , _______
 //,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
