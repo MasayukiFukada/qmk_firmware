@@ -6,8 +6,9 @@
 #define _BASE    0
 #define _LOWER   1
 #define _RAISE   2
-#define _SUPPORT 3
-#define _ADJUST  4
+#define _CURSOR  3
+#define _SUPPORT 4
+#define _ADJUST  5
 
 #define _______ KC_TRNS
 
@@ -36,7 +37,7 @@ enum custom_keycodes {
 #define KC_L2 DF(_CUSTOM)
 
 #define KC_LCMM LT(_LOWER, KC_COMM)
-#define KC_LDOT LT(_RAISE, KC_DOT)
+#define KC_LDOT LT(_CURSOR, KC_DOT)
 #define KC_LSLS LT(_SUPPORT, KC_SLSH)
 #define KC_LENT LT(_ADJUST, KC_ENTER)
 #define KC_LLOW LT(_LOWER, KC_ESC)
@@ -55,9 +56,9 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
 // `---------+---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------+---------/
-     KC_Q    , KC_W    , KC_F    , KC_P    , KC_G    ,                        KC_J    , KC_L    , KC_U    , KC_Y    , KC_LENT ,
-     KC_A    , KC_R    , KC_S    , KC_T    , KC_D    ,                        KC_H    , KC_N    , KC_E    , KC_I    , KC_O    ,
-     KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    ,                        KC_K    , KC_M    , KC_LCMM , KC_LDOT , KC_LSLS ,
+     KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    ,                        KC_J    , KC_L    , KC_U    , KC_Y    , KC_MINS ,
+     KC_A    , KC_R    , KC_S    , KC_T    , KC_G    ,                        KC_M    , KC_N    , KC_E    , KC_I    , KC_O    ,
+     KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    ,                        KC_K    , KC_H    , KC_LCMM , KC_LDOT , KC_LSLS ,
      KC_LENT , XXXXXXX , XXXXXXX , KC_LGUI , KC_LLOW , KC_MSPC ,    KC_MENT , KC_LRAI , KC_LALT , XXXXXXX , XXXXXXX , XXXXXXX
 // `---------+---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------+---------/
   ),
@@ -71,6 +72,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_RAISE] = LAYOUT(
 // `---------+---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------+---------/
+     KC_GRV  , KC_QUOT , XXXXXXX , XXXXXXX , XXXXXXX ,                        XXXXXXX , KC_EQL  , KC_MINS , KC_BSLS , KC_SCLN ,
+     XXXXXXX , KC_LBRC , KC_RBRC , XXXXXXX , XXXXXXX ,                        XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
+     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,                        XXXXXXX , XXXXXXX , XXXXXXX , _______ , XXXXXXX ,
+     _______ , _______ , _______ , _______ , _______ , _______ ,    _______ , _______ , _______ , _______ , _______ , _______
+// `---------+---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------+---------/
+  ),
+  [_CURSOR] = LAYOUT(
+// `---------+---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------+---------/
      KC_PGUP , KC_HOME , KC_UP   , KC_END  , KC_F1   ,                        KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   ,
      KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , KC_F7   ,                        KC_F8   , KC_F9   , KC_F10  , KC_F11  , KC_F12  ,
      XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,                        KC_PSCR , KC_APP  , XXXXXXX , _______ , KC_DEL  ,
@@ -79,8 +88,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_SUPPORT] = LAYOUT(
 // `---------+---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------+---------/
-     KC_ESC  , XXXXXXX , KC_HENK , KC_MHEN , XXXXXXX ,                        XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
-     KC_TAB  , KC_DEL  , KC_BSPC , KC_SPC  , XXXXXXX ,                        KC_ENT  , KC_JPN  , KC_LCTL , KC_LSFT , KC_BSPC ,
+     KC_ESC  , KC_INS  , KC_HENK , KC_MHEN , XXXXXXX ,                        XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
+     KC_TAB  , KC_DEL  , KC_BSPC , KC_SPC  , XXXXXXX ,                        KC_ENT  , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
      KC_CAPS , XXXXXXX , XXXXXXX , KC_SPC  , KC_SPC  ,                        KC_LEFT , KC_DOWN , KC_UP   , KC_RGHT , _______ ,
      _______ , _______ , _______ , _______ , _______ , _______ ,    _______ , _______ , _______ , _______ , _______ , _______
 // `---------+---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------+---------/

@@ -28,7 +28,11 @@
     "[json]": {
         "editor.formatOnSave": false
     },
+<<<<<<< HEAD
     "clangd.arguments": [
         "--header-insertion=never"
     ]
+=======
+    "cmake.configureOnOpen": false
+>>>>>>> 6063f894c5 (沼トレウスの調整)
 }
