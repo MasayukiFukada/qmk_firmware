@@ -6,9 +6,9 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT_ortho_3x10(
   //,-------+-------+-------+-------+-------+  -------+-------+-------+-------+-------.
-     MY_Q   ,MY_W   ,MY_F   ,MY_P   ,MY_G   ,  MY_J   ,MY_L   ,MY_U   ,MY_Y   ,MY_ENT ,
-     MY_A   ,MY_R   ,MY_S   ,MY_T   ,MY_D   ,  MY_H   ,MY_N   ,MY_E   ,MY_I   ,MY_O   ,
-     MY_Z   ,MY_X   ,MY_C   ,MY_V   ,MY_SPC ,  MY_SPC ,MY_K   ,MY_M   ,MY_B   ,MY_SLSH
+     MY_Q   ,MY_W   ,MY_F   ,MY_P   ,MY_B   ,  MY_J   ,MY_L   ,MY_U   ,MY_Y   ,MY_MINS,
+     MY_A   ,MY_R   ,MY_S   ,MY_T   ,MY_G   ,  MY_M   ,MY_N   ,MY_E   ,MY_I   ,MY_O   ,
+     MY_Z   ,MY_X   ,MY_C   ,MY_D   ,MY_SPC ,  MY_K   ,MY_H   ,MY_V   ,MY_ENT ,MY_SLSH
   //`-------+-------+-------+-------+-------+  -------+-------+-------+-------+-------'
   ),
   [LOWER] = LAYOUT_ortho_3x10(
@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [SUPPORT] = LAYOUT_ortho_3x10(
   //,-------+-------+-------+-------+-------+  -------+-------+-------+-------+-------.
-     KC_ESC ,_______,KC_HENK,KC_MHEN,_______,  _______,_______,_______,_______,_______,
+     KC_ESC ,KC_INS ,KC_HENK,KC_MHEN,_______,  _______,_______,_______,_______,RESET  ,
      KC_TAB ,KC_DEL ,KC_BSPC,KC_SPC ,_______,  _______,KC_ENT ,_______,_______,_______,
      _______,_______,_______,_______,_______,  _______,_______,_______,_______,_______
   //`-------+-------+-------+-------+-------+  -------+-------+-------+-------+-------'
