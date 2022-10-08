@@ -18,7 +18,8 @@
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     _BASE,
-    _SUB
+    _SUB,
+    _GAME
 };
 
 // Defines the keycodes used by our macros in process_record_user
@@ -27,9 +28,10 @@ enum custom_keycodes {
 };
 
 #define KC_LLAY LT(_SUB, KC_ENT)
+// 押すたびにレイヤー ON/OFF 切り替える
+#define LGAME TG(_GAME)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* Base */
     [_BASE] = LAYOUT(
 //       '--------+--------+--------'
            KC_MUTE, KC_LLAY, RGB_MOD,
@@ -41,7 +43,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //       '--------+--------+--------'
            RESET  , _______, RGB_TOG,
            KC_1   , KC_LEAD, KC_2   ,
-           KC_3   , KC_4   , KC_5
+           LGAME  , XXXXXXX, XXXXXXX
+//       '--------+--------+--------'
+    ),
+    [_GAME] = LAYOUT(
+//       '--------+--------+--------'
+           LGAME  , _______, XXXXXXX,
+           XXXXXXX, KC_W   , XXXXXXX,
+           KC_A   , KC_S   , KC_D
 //       '--------+--------+--------'
     )
 };
@@ -50,7 +59,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) { // Left encoder
         if (clockwise) {
             tap_code(KC_VOLU);
@@ -65,6 +74,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             rgblight_increase_hue_noeeprom();
         }
     }
+    return true;
 }
 
 bool did_leader_succeed;
@@ -77,27 +87,25 @@ void matrix_scan_user(void) {
 
         SEQ_ONE_KEY(KC_1) {
             // feedly の 一度 j を押してアクティブになってからのマクロ
-            // 「Read Later の解除」「別タブで開く」「2 番目のタブに戻る」「削除」
-            SEND_STRING("sv" SS_LCTL("2") "x");
+            // 「Read Later の解除」「別タブで開く」「1 番目のタブに戻る」「削除」
+            SEND_STRING("sv" SS_LCTL("1") "x");
             did_leader_succeed = true;
         }
         SEQ_ONE_KEY(KC_2) {
             did_leader_succeed = true;
         }
+        /*
+        あまりマクロ使わないので封印
         SEQ_ONE_KEY(KC_3) {
             did_leader_succeed = true;
         }
         SEQ_ONE_KEY(KC_4) {
-            register_code(KC_LSFT);
-            register_code(KC_LGUI);
-            tap_code(KC_C);
-            unregister_code(KC_LSFT);
-            unregister_code(KC_LGUI);
             did_leader_succeed = true;
         }
         SEQ_ONE_KEY(KC_5) {
             did_leader_succeed = true;
         }
+        */
         else {
             did_leader_succeed = true;
         }
