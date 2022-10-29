@@ -61,3 +61,6 @@
 #define KC_RSAD RGB_SAD
 #define KC_RHUI RGB_HUI
 #define KC_RHUD RGB_HUD
+
+#define NORMAL DF(BASE)
+#define GAME   DF(PLAY)
