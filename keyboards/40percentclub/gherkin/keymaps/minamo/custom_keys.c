@@ -22,7 +22,7 @@ typedef struct {
   int state;
 } tap;
 
-int cur_dance (qk_tap_dance_state_t *state) {
+int cur_dance (tap_dance_state_t *state) {
     if (state->count == 1) {
         if (state->interrupted || !state->pressed)  return SINGLE_TAP;
         else return SINGLE_HOLD;
@@ -48,7 +48,7 @@ static tap xtap_state = {
   .state = 0
 };
 
-void x_finished (qk_tap_dance_state_t *state, void *user_data) {
+void x_finished (tap_dance_state_t *state, void *user_data) {
   xtap_state.state = cur_dance(state);
   switch(xtap_state.state) {
     case SINGLE_TAP: register_code(KC_X); break;
@@ -56,7 +56,7 @@ void x_finished (qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
-void x_reset (qk_tap_dance_state_t *state, void *user_data) {
+void x_reset (tap_dance_state_t *state, void *user_data) {
   switch(xtap_state.state) {
     case SINGLE_TAP: unregister_code(KC_X); break;
     case TRIPLE_TAP: break;
@@ -65,7 +65,7 @@ void x_reset (qk_tap_dance_state_t *state, void *user_data) {
 
 // -----------------------------------------------------------------------------
 
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
     [TD_KEY_X] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, x_finished, x_reset),
 };
 
