@@ -2,8 +2,6 @@
 
 #define MASTER_LEFT
 
-#define IGNORE_MOD_TAP_INTERRUPT
-
 #undef RGB_DI_PIN
 #undef RGBLED_NUM
 #define RGB_DI_PIN D2
