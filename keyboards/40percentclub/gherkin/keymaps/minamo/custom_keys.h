@@ -15,7 +15,7 @@
 #define MY_N    LT(FUNCTION, KC_N)
 #define MY_O    LT(SUPPORT, KC_O)
 #define MY_P    LALT_T(KC_P)
-#define MY_Q    KC_Q
+#define MY_Q    LSFT_T(KC_Q)
 #define MY_R    KC_R
 #define MY_S    KC_S
 #define MY_T    LT(RAISE, KC_T)
@@ -41,7 +41,7 @@
 #define MY_DOT  KC_DOT
 #define MY_SLSH KC_SLSH
 #define MY_SCLN KC_SCLN
-#define MY_MINS KC_MINS
+#define MY_MINS LSFT_T(KC_MINS)
 #define MY_QUOT KC_QUOT
 #define MY_BSLS KC_BSLS
 #define MY_EQL  KC_EQL
@@ -49,7 +49,7 @@
 #define MY_LBRC KC_LBRC
 #define MY_RBRC KC_RBRC
 
-#define MY_SPC  LSFT_T(KC_SPC)
+#define MY_SPC  KC_SPC
 #define MY_ENT  KC_ENT
 
 #define KC_RTOG RGB_TOG
