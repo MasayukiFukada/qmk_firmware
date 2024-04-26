@@ -4,9 +4,7 @@
 #define LOWER    1
 #define RAISE    2
 #define PLAY     3
-#define CURSOR   4
-#define FUNCTION 5
-#define SUPPORT  6
+#define SUPPORT  4
 
 enum custom_keycodes {
     MACRO1 = SAFE_RANGE
