@@ -7,18 +7,18 @@
 #define MY_F    LGUI_T(KC_F)
 #define MY_G    KC_G
 #define MY_H    KC_H
-#define MY_I    LT(CURSOR, KC_I)
+#define MY_I    LT(RAISE, KC_I)
 #define MY_J    KC_J
 #define MY_K    KC_K
 #define MY_L    LALT_T(KC_L)
 #define MY_M    KC_M
-#define MY_N    LT(FUNCTION, KC_N)
+#define MY_N    KC_N
 #define MY_O    LT(SUPPORT, KC_O)
 #define MY_P    LALT_T(KC_P)
 #define MY_Q    LSFT_T(KC_Q)
-#define MY_R    KC_R
+#define MY_R    LT(RAISE, KC_R)
 #define MY_S    KC_S
-#define MY_T    LT(RAISE, KC_T)
+#define MY_T    LT(LOWER, KC_T)
 #define MY_U    LGUI_T(KC_U)
 #define MY_V    KC_V
 #define MY_W    LCTL_T(KC_W)
