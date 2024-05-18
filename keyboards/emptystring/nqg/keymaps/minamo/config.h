@@ -17,14 +17,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
+//#include "config_common.h"
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x0076
 #define PRODUCT_ID      0x0037
 #define DEVICE_VER      0x0100
-#define MANUFACTURER    emptystring
-#define PRODUCT         NQG
+//#define MANUFACTURER    emptystring
+//#define PRODUCT         NQG
 #define DESCRIPTION     30% ortholinear keyboard
 
 /* key matrix size */
@@ -32,8 +32,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 10
 
 /* key matrix pins */
-#define MATRIX_ROW_PINS {B6, B2, B3, B1}
-#define MATRIX_COL_PINS {F7, F6, B5, B4, E6, D7, C6, D4, D0, D1}
+//#define MATRIX_ROW_PINS {B6, B2, B3, B1}
+//#define MATRIX_COL_PINS {F8, F6, B5, B4, E6, D7, C6, D4, D0, D1}
 
 
 /* COL2ROW or ROW2COL */
