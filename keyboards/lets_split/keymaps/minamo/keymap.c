@@ -68,8 +68,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ,---------+---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------+---------.
      KC_ESC  , KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    ,    KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    , KC_BSPC , \
      KC_TAB  , KC_A    , KC_S    , KC_D    , KC_F    , KC_G    ,    KC_H    , KC_J    , KC_K    , KC_L    , KC_LENT , KC_APP  , \
-     KC_LSFT , KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    ,    KC_N    , KC_M    , KC_LCMM , KC_LDOT , KC_LSLS , KC_MHEN , \
-     KC_LENT , KC_JPN  , XXXXXXX , KC_LGUI , KC_LLOW , KC_MSPC ,    KC_MENT , KC_LRAI , KC_LALT , KC_INS  , KC_DEL  , KC_HENK   \
+     KC_LSFT , KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    ,    KC_N    , KC_M    , KC_LCMM , KC_LDOT , KC_LSLS , KC_INT5 , \
+     KC_LENT , KC_JPN  , XXXXXXX , KC_LGUI , KC_LLOW , KC_MSPC ,    KC_MENT , KC_LRAI , KC_LALT , KC_INS  , KC_DEL  , KC_INT4   \
 // `---------+---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------+---------/
 ),
 [_CUSTOM] = LAYOUT_ortho_4x12(
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_SUPPORT] = LAYOUT_ortho_4x12( \
 // ,---------+---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------+---------.
-     _______ , KC_ESC  , XXXXXXX , KC_HENK , KC_MHEN , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , _______ , \
+     _______ , KC_ESC  , XXXXXXX , KC_INT4 , KC_INT6 , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , _______ , \
      _______ , KC_TAB  , XXXXXXX , KC_BSPC , KC_SPC  , XXXXXXX ,    KC_ENT  , KC_JPN  , KC_LCTL , KC_LSFT , KC_BSPC , _______ , \
      _______ , KC_CAPS , XXXXXXX , XXXXXXX , KC_SPC  , KC_SPC  ,    KC_LEFT , KC_DOWN , KC_UP   , KC_RGHT , _______ , _______ , \
      _______ , _______ , _______ , _______ , _______ , _______ ,    _______ , _______ , _______ , _______ , _______ , _______   \
@@ -122,7 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_ADJUST] =  LAYOUT_ortho_4x12( \
 // ,---------+---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------+---------.
-     RESET   , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_RTOG ,    KC_RHUI , KC_RSAI , KC_RVAI , RGB_RST , _______ , _______ , \
+     QK_BOOT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_RTOG ,    KC_RHUI , KC_RSAI , KC_RVAI , RGB_RST , _______ , _______ , \
      KC_L1   , KC_L2   , XXXXXXX , XXXXXXX , XXXXXXX , KC_RMOD ,    KC_RHUD , KC_RSAD , KC_RVAD , TAP_ANM , _______ , _______ , \
      _______ , KC_TERR , XXXXXXX , XXXXXXX , XXXXXXX , KC_RRMD ,    KC_MUTE , KC_VOLU , KC_VOLD , XXXXXXX , XXXXXXX , _______ , \
      _______ , _______ , _______ , _______ , _______ , _______ ,    _______ , _______ , _______ , _______ , _______ , _______   \
