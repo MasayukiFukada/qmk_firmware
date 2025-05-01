@@ -17,6 +17,11 @@ Flashing example for this keyboard ([using the command line](https://docs.qmk.fm
 
 See [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) then the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information.
 
+## 追記
+
+- プロジェクトルートで
+    - qmk compile -kb maple_computing/minidox/rev1 -km minamo
+
 ## Build Guide
 
 A build guide for putting together the MiniDox v1 can be found here: [MiniDox Build Log / Guide](http://imgur.com/a/vImo6)

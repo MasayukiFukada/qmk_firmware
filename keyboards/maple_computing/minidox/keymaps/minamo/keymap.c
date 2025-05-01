@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT( \
 // ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
      KC_6    , KC_7    , KC_8    , KC_9    , KC_0    ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , \
-     KC_1    , KC_2    , KC_3    , KC_4    , KC_5    ,    KC_EQL  , KC_SCLN , KC_CMM  , KC_DOT  , KC_SLSH , \
+     KC_1    , KC_2    , KC_3    , KC_4    , KC_5    ,    KC_EQL  , KC_SCLN , KC_COMM , KC_DOT  , KC_SLSH , \
      KC_GRV  , KC_QUOT , KC_LBRC , KC_RBRC , KC_BSLS ,    KC_PSCR , KC_APP  , KC_MUTE , XXXXXXX , XXXXXXX , \
 // `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
                          _______ , _______ , _______ ,    _______ , _______ , _______ \
@@ -81,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_SUPPORT] = LAYOUT( \
 // ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
-     KC_ESC  , KC_LNG5 , KC_HENK , KC_MHEN , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , \
+     KC_ESC  , KC_LNG5 , KC_INT4 , KC_INT5 , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , \
      KC_TAB  , XXXXXXX , KC_BSPC , KC_SPC  , XXXXXXX ,    XXXXXXX , KC_JPN  , KC_LCTL , KC_LSFT , KC_BSPC , \
      KC_CAPS , XXXXXXX , XXXXXXX , KC_SPC  , KC_SPC  ,    KC_LEFT , KC_DOWN , KC_UP   , KC_RGHT , _______ , \
 // `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_ADJUST] = LAYOUT( \
 // ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
-     RESET   , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , \
+     QK_BOOT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , \
      XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , \
      XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , \
 // `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
