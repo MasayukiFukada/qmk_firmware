@@ -7,12 +7,10 @@ extern keymap_config_t keymap_config;
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 #define _BASE    0
-#define _CUSTOM  1
-#define _GAME    2
-#define _LOWER   3
-#define _RAISE   4
-#define _SUPPORT 5
-#define _ADJUST  6
+#define _LOWER   1
+#define _RAISE   2
+#define _SUPPORT 3
+#define _ADJUST  4
 
 enum custom_keycodes {
   ONESHOT_CLEAR = SAFE_RANGE,
@@ -37,16 +35,14 @@ enum custom_keycodes {
 #define KC_RVAI RGB_VAI
 #define KC_RVAD RGB_VAD
 
-#define KC_L1 DF(_BASE)
-#define KC_L2 DF(_CUSTOM)
-#define KC_GAME DF(_GAME)
-
 #define KC_LCMM LT(_LOWER, KC_COMM)
 #define KC_LDOT LT(_RAISE, KC_DOT)
 #define KC_LSLS LT(_SUPPORT, KC_SLSH)
-#define KC_LENT LT(_ADJUST, KC_ENTER)
-#define KC_LLOW LT(_LOWER, KC_ESC)
-#define KC_LRAI LT(_RAISE, KC_BSPC)
+#define KC_LMIN LT(_ADJUST, KC_MINS)
+#define KC_LLOW LT(_LOWER, KC_BSPC)
+#define KC_LRAI LT(_RAISE, KC_LNG5)
+#define KC_MALT LALT_T(KC_ESC)
+#define KC_MGUI LGUI_T(KC_DEL)
 #define KC_MENT LSFT_T(KC_ENT)
 #define KC_MSPC LCTL_T(KC_SPC)
 
@@ -61,47 +57,31 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT( \
 // ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
-     KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    ,    KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    , \
-     KC_A    , KC_S    , KC_D    , KC_F    , KC_G    ,    KC_H    , KC_J    , KC_K    , KC_L    , KC_LENT , \
-     KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    ,    KC_N    , KC_M    , KC_LCMM , KC_LDOT , KC_LSLS , \
+     KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    ,    KC_J    , KC_L    , KC_U    , KC_Y    , KC_LMIN , \
+     KC_A    , KC_R    , KC_S    , KC_T    , KC_G    ,    KC_M    , KC_N    , KC_E    , KC_I    , KC_O    , \
+     KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    ,    KC_K    , KC_H    , KC_LCMM , KC_LDOT , KC_LSLS , \
 // `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
-                         KC_LGUI , KC_LLOW , KC_MSPC ,    KC_MENT , KC_LRAI , KC_LALT \
-),
-[_CUSTOM] = LAYOUT( \
-// ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
-     KC_Q    , KC_W    , KC_F    , KC_P    , KC_G    ,    KC_J    , KC_L    , KC_U    , KC_Y    , KC_LENT , \
-     KC_A    , KC_R    , KC_S    , KC_T    , KC_D    ,    KC_H    , KC_N    , KC_E    , KC_I    , KC_O    , \
-     KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    ,    KC_K    , KC_M    , KC_LCMM , KC_LDOT , KC_LSLS , \
-// `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
-                         _______ , _______ , _______ ,    _______ , _______ , _______ \
-),
-[_GAME] = LAYOUT( \
-// ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
-     KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    ,    KC_Y    , KC_U    , KC_I    , KC_O    , KC_LENT , \
-     KC_A    , KC_S    , KC_D    , KC_F    , KC_G    ,    KC_H    , KC_J    , KC_K    , KC_L    , KC_LENT , \
-     KC_Z    , KC_X    , KC_C    , KC_V    , KC_B    ,    KC_N    , KC_M    , KC_LCMM , KC_LDOT , KC_LENT , \
-// `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
-                         KC_ESC  , KC_LLOW , KC_SPC  ,    KC_MENT , KC_LRAI , KC_LALT \
+                         KC_MALT , KC_MGUI , KC_MSPC ,    KC_MENT , KC_LLOW , KC_LRAI \
 ),
 [_LOWER] = LAYOUT( \
 // ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
      KC_6    , KC_7    , KC_8    , KC_9    , KC_0    ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , \
-     KC_1    , KC_2    , KC_3    , KC_4    , KC_5    ,    KC_GRV  , KC_QUOT , XXXXXXX , KC_SCLN , KC_SCLN , \
-     KC_1CTL , KC_1ALT , KC_1GUI , KC_1SFT , KC_LBRC ,    KC_RBRC , KC_EQL  , _______ , KC_MINS , KC_BSLS , \
+     KC_1    , KC_2    , KC_3    , KC_4    , KC_5    ,    KC_EQL  , KC_SCLN , KC_CMM  , KC_DOT  , KC_SLSH , \
+     KC_GRV  , KC_QUOT , KC_LBRC , KC_RBRC , KC_BSLS ,    KC_PSCR , KC_APP  , KC_MUTE , XXXXXXX , XXXXXXX , \
 // `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
                          _______ , _______ , _______ ,    _______ , _______ , _______ \
 ),
 [_RAISE] = LAYOUT( \
 // ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
-     KC_PGUP , KC_HOME , KC_UP   , KC_END  , KC_F1   ,    KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   , \
-     KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , KC_F7   ,    KC_F8   , KC_F9   , KC_F10  , KC_F11  , KC_F12  , \
-     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,    KC_PSCR , KC_APP  , KC_1CLR , _______ , KC_DEL  , \
+     KC_PGUP , KC_HOME , KC_UP   , KC_END  , KC_F7   ,    KC_F8   , KC_F9   , KC_F10  , KC_F11  , KC_F12  , \
+     KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , KC_F1   ,    KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   , \
+     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_F13  ,    KC_F14  , KC_F15  , KC_F16  , KC_F17  , KC_F18  , \
 // `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
                          _______ , _______ , _______ ,    _______ , _______ , _______ \
 ),
 [_SUPPORT] = LAYOUT( \
 // ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
-     KC_ESC  , XXXXXXX , KC_HENK , KC_MHEN , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , \
+     KC_ESC  , KC_LNG5 , KC_HENK , KC_MHEN , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , \
      KC_TAB  , XXXXXXX , KC_BSPC , KC_SPC  , XXXXXXX ,    XXXXXXX , KC_JPN  , KC_LCTL , KC_LSFT , KC_BSPC , \
      KC_CAPS , XXXXXXX , XXXXXXX , KC_SPC  , KC_SPC  ,    KC_LEFT , KC_DOWN , KC_UP   , KC_RGHT , _______ , \
 // `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
@@ -110,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = LAYOUT( \
 // ,---------+---------+---------+---------+---------.  ,---------+---------+---------+---------+---------.
      RESET   , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , \
-     KC_L1   , KC_L2   , KC_GAME , XXXXXXX , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , \
+     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ , \
      XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , \
 // `---------+---------+---------+---------+---------/  `---------+---------+---------+---------+---------/
                          XXXXXXX , XXXXXXX , XXXXXXX ,    XXXXXXX , XXXXXXX , XXXXXXX \
