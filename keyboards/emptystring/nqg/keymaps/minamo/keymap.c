@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                MY_Q    , MY_W    , MY_F    , MY_P    , KC_B    , KC_J    , MY_L    , MY_U    , MY_Y    , MY_MINS , \
                KC_A    , MY_R    , KC_S    , MY_T    , KC_G    , KC_M    , KC_N    , MY_E    , MY_I    , MY_O    , \
                KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , KC_K    , KC_H    , KC_COMM , KC_ENT  , KC_SLSH , \
-     KC_ESC  ,                     XXXXXXX , KC_TAB  , MY_SPC  , MY_ENT  , KC_BSPC , _______
+     KC_ESC  ,                     XXXXXXX , KC_TAB  , MY_SPC  , MY_ENT  , KC_BSPC , DF(_PLAY)
 // ,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
   ),
   [_LOWER] = LAYOUT(
@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    , KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    , \
                KC_A    , KC_S    , KC_D    , KC_F    , KC_G    , KC_H    , KC_J    , KC_K    , KC_L    , XXXXXXX , \
                XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , \
-     _______ ,                     _______ , _______ , _______ , _______ , _______ , _______
+     _______ ,                     _______ , _______ , _______ , _______ , _______ , DF(_BASE)
 // ,---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------.
   ),
   [_SUPPORT] = LAYOUT(
