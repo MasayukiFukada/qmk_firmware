@@ -40,7 +40,7 @@
 #define KC_LLOW LT(LOWER, KC_ESC)
 #define KC_LRAI LT(RAISE, KC_BSPC)
 #define KC_LADJ LT(ADJUST, KC_INT4)
-#define KC_LCUR LT(CURSOR, KC_INT4)
+#define KC_LCUR LT(CURSOR, KC_ENT)
 #define KC_LFUN LT(FUNCTION, KC_INT5)
 #define KC_LSUP LT(SUPPORT, KC_NO)
 #define KC_LDOT LT(CURSOR, KC_DOT)
@@ -85,9 +85,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_LDEL , KC_TAB  , KC_LLOW , KC_MSPC ,
 
     // 右手
-    XXXXXXX , KC_J    , KC_L    , KC_U    , KC_Y    , KC_MINS ,
+    QK_BOOT , KC_J    , KC_L    , KC_U    , KC_Y    , KC_MINS ,
     KC_LFUN , KC_M    , KC_N    , KC_E    , KC_I    , KC_O    ,
-    KC_MALT , KC_K    , KC_H    , KC_COMM , KC_ENT  , KC_SLSH ,
+    KC_MALT , KC_K    , KC_H    , KC_COMM , KC_DOT  , KC_SLSH ,
               KC_MENT , KC_LRAI , KC_LSUP , KC_LCUR
   ),
 
@@ -121,14 +121,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [CURSOR] = LAYOUT(
     // 左手
-    KC_PGUP , KC_HOME , KC_UP   , KC_END  , XXXXXXX , XXXXXXX ,
-    KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , XXXXXXX , _______ ,
+    KC_PGUP , KC_HOME , KC_UP   , KC_END  , KC_F7   , XXXXXXX ,
+    KC_PGDN , KC_LEFT , KC_DOWN , KC_RGHT , KC_F1   , _______ ,
     XXXXXXX , XXXXXXX , KC_PSCR , XXXXXXX , XXXXXXX , _______ ,
               XXXXXXX , XXXXXXX , _______ , _______ ,
 
     // 右手
-    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
-    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
+    XXXXXXX , KC_F8   , KC_F9   , KC_F10  , KC_F11  , KC_F12  ,
+    _______ , KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   ,
     _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
               _______ , _______ , XXXXXXX , XXXXXXX
   ),
