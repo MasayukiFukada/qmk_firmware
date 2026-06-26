@@ -386,6 +386,7 @@ void EVENT_USB_Device_ConfigurationChanged(void) {
 #endif
 
     usb_device_state_set_configuration(USB_DeviceState == DEVICE_STATE_Configured, USB_Device_ConfigurationNumber);
+    (void)ConfigSuccess;
 }
 
 /* FIXME: Expose this table in the docs somehow

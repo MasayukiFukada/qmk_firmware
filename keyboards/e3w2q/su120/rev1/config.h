@@ -17,23 +17,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
-
-/* USB Device descriptor parameter */
-#define VENDOR_ID       0x1209
-#define PRODUCT_ID      0x4649
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    minamo
-#define PRODUCT         Dactyl_Tracer
-#define DESCRIPTION     Expandable keyboard with up to 120 keys
-
 /* key matrix size */
 #define MATRIX_ROWS 4*2 //master: 4 rows, slave: 4 rows
 #define MATRIX_COLS 8
-
-#define ENCODERS_PAD_A { B4 }
-#define ENCODERS_PAD_B { B5 }
-#define ENCODER_RESOLUTION 4
 
 /*
  * Keyboard Matrix Assignments
@@ -47,7 +33,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #define MATRIX_ROW_PINS { F6, F7, B1, B3 }
 #define MATRIX_COL_PINS { D1, D0, D4, C6, D7, E6, B4, B5 }
-#define UNUSED_PINS
 
 /* COL2ROW, ROW2COL*/
 #define DIODE_DIRECTION COL2ROW
@@ -62,10 +47,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define BACKLIGHT_LEVELS 3
 
 //https://github.com/qmk/qmk_firmware/blob/master/docs/feature_rgblight.md
-#define RGB_DI_PIN D3
-#ifdef RGB_DI_PIN
+#define WS2812_DI_PIN D3
+#ifdef WS2812_DI_PIN
   #define RGBLIGHT_SPLIT
-  #define RGBLED_NUM 12
+  #define RGBLIGHT_LED_COUNT 12
   #define RGBLIGHT_HUE_STEP 8
   #define RGBLIGHT_SAT_STEP 8
   #define RGBLIGHT_VAL_STEP 8

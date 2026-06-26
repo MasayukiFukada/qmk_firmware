@@ -25,7 +25,7 @@
 #define ADJUST   8
 
 // Fillers to make layering more clear
-#define KC_RST RESET
+#define KC_RST QK_BOOT
 #define KC_DBUG DEBUG
 #define KC_RTOG RGB_TOG
 #define KC_RMOD RGB_MOD
@@ -39,9 +39,9 @@
 
 #define KC_LLOW LT(LOWER, KC_ESC)
 #define KC_LRAI LT(RAISE, KC_BSPC)
-#define KC_LADJ LT(ADJUST, KC_HENK)
-#define KC_LCUR LT(CURSOR, KC_HENK)
-#define KC_LFUN LT(FUNCTION, KC_MHEN)
+#define KC_LADJ LT(ADJUST, KC_INT4)
+#define KC_LCUR LT(CURSOR, KC_INT4)
+#define KC_LFUN LT(FUNCTION, KC_INT5)
 #define KC_LSUP LT(SUPPORT, KC_NO)
 #define KC_LDOT LT(CURSOR, KC_DOT)
 #define KC_LSLS LT(SUPPORT, KC_SLSH)
@@ -87,14 +87,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // 右手
     XXXXXXX , KC_J    , KC_L    , KC_U    , KC_Y    , KC_MINS ,
     KC_LFUN , KC_M    , KC_N    , KC_E    , KC_I    , KC_O    ,
-    KC_MALT , KC_K    , KC_H    , KC_COMM , KC_LDOT , KC_LSLS ,
+    KC_MALT , KC_K    , KC_H    , KC_COMM , KC_ENT  , KC_SLSH ,
               KC_MENT , KC_LRAI , KC_LSUP , KC_LCUR
   ),
 
   [LOWER] = LAYOUT(
     // 左手
-    KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , XXXXXXX ,
-    KC_1    , KC_2    , KC_3    , KC_4    , KC_5    , _______ ,
+    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
+    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
               XXXXXXX , XXXXXXX , _______ , _______ ,
 
@@ -107,15 +107,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [RAISE] = LAYOUT(
     // 左手
-    KC_GRV  , KC_QUOT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
-    XXXXXXX , KC_LBRC , KC_RBRC , XXXXXXX , XXXXXXX , _______ ,
-    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
+    KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , XXXXXXX ,
+    KC_1    , KC_2    , KC_3    , KC_4    , KC_5    , _______ ,
+    KC_GRV  , KC_QUOT , KC_LBRC , KC_RBRC , KC_BSLS , _______ ,
               XXXXXXX , XXXXXXX , _______ , _______ ,
 
     // 右手
-    XXXXXXX , XXXXXXX , KC_EQL  , KC_MINS , KC_BSLS , KC_SCLN ,
-    _______ , XXXXXXX , XXXXXXX , KC_COMM , KC_DOT  , KC_SLSH ,
-    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
+    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
+    _______ , KC_EQL  , KC_SCLN , KC_COMM , KC_DOT  , KC_SLSH ,
+    _______ , KC_PSCR , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
               _______ , _______ , XXXXXXX , XXXXXXX
   ),
 
@@ -135,21 +135,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [FUNCTION] = LAYOUT(
     // 左手
-    KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   , XXXXXXX ,
-    KC_F7   , KC_F8   , KC_F9   , KC_F10  , KC_F11  , _______ ,
+    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_F7   , XXXXXXX ,
+    XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_F1   , _______ ,
     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
               XXXXXXX , XXXXXXX , _______ , _______ ,
 
     // 右手
-    XXXXXXX , KC_F6   , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
-    _______ , KC_F12  , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
+    XXXXXXX , KC_F8   , KC_F9   , KC_F10  , KC_F11  , KC_F12  ,
+    _______ , KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   ,
     _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
               _______ , _______ , XXXXXXX , XXXXXXX
   ),
 
   [SUPPORT] = LAYOUT(
     // 左手
-    KC_ESC  , KC_INS  , KC_HENK , KC_MHEN , XXXXXXX , XXXXXXX ,
+    KC_ESC  , KC_INS  , KC_INT4 , KC_INT5 , XXXXXXX , XXXXXXX ,
     KC_TAB  , KC_DEL  , KC_BSPC , KC_SPC  , XXXXXXX , _______ ,
     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , _______ ,
               XXXXXXX , XXXXXXX , _______ , _______ ,
@@ -191,7 +191,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [ADJUST] = LAYOUT(
     // 左手
-    RESET   , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
+    QK_BOOT , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
     KC_NORM , KC_GAME , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
     XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
               XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX ,
@@ -236,4 +236,3 @@ void matrix_scan_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
-
